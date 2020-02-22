@@ -10,7 +10,7 @@ import Sprint1.Pecunia_bank2.transaction.model.Transaction;
 import Sprint1.Pecunia_bank2.transaction.model.TransactionUsingSlip;
 
 public   class TransactionDaoImpl implements TransactionDao{
-	Map<String,TransactionUsingSlip> transaction=new HashMap<String,TransactionUsingSlip>();
+	static Map<String,TransactionUsingSlip> transaction=new HashMap<String,TransactionUsingSlip>();
 	public TransactionDaoImpl() {
 		addSomeAccountDetails();
 	}
@@ -99,6 +99,14 @@ public boolean addAmount(String accountNumber,double amount) {
 	TransactionUsingSlip acc=transaction.get(accountNumber);
 	acc.setBalance(acc.getBalance()+amount);
 	return true;
+}
+public boolean addAmount(String accountNumber, int amount) {
+	// TODO Auto-generated method stub
+	return false;
+}
+public boolean deductAmount(String accountNumber, int amount) {
+	// TODO Auto-generated method stub
+	return false;
 }
 }
 
