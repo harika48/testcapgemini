@@ -32,12 +32,8 @@ public class Main_UI {
 			System.out.println("3.Exit");
 			int choice=sc.nextInt();
 			String s=String.valueOf(choice);
-			
-			
-		
-				if(!s.matches("[1-4]{1}")) {
+				if(!s.matches("[1-4]{1}")) 
 						throw new InvalidException("Please enter digits only");
-			}
 			
 			switch(choice) {
 			case 1:
@@ -65,9 +61,7 @@ public class Main_UI {
 		String accountNumber=sc.next();
 		System.out.println("enter amount to be credited");
 		double amount=sc.nextInt();
-	
-		 
-		if(transactionservice.creditUsingSlip( userName, accountNumber,amount)) {
+	if(transactionservice.creditUsingSlip( userName, accountNumber,amount)) {
 			System.out.println("amount deposited successfully");
 		}
 	}

@@ -20,7 +20,7 @@ public class Test extends TestCase {
 	}
 	
 	public void test3() {
-		assertEquals(true,t2.addAmount("123456789012", 200));
+		assertEquals(true,t2.addAmount("987654321012", 2000));
 	}
 	
 	

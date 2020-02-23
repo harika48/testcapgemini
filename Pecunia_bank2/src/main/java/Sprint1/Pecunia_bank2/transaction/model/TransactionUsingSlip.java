@@ -7,7 +7,7 @@ public class TransactionUsingSlip {
 	String accountNumber;
 	double balance;
     //List<Transaction> transactions;
-	public TransactionUsingSlip(String userName, String accountNumber, double amount) {
+	public TransactionUsingSlip(String userName, String accountNumber, double balance) {
 		super();
 		this.userName = userName;
 		this.accountNumber = accountNumber;
