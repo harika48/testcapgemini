@@ -22,7 +22,7 @@ public LocalDate getTransactionDate() {
 public void setTransactionDate(LocalDate transactionDate) {
 	TransactionDate = transactionDate;
 }
-/*@Override
+@Override
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
@@ -51,7 +51,7 @@ public boolean equals(Object obj) {
 		return false;
 	return true;
 }
-@Override*/
+@Override
 public String toString() {
 	return "Transaction [TransactionId=" + TransactionId + ", TransactionDate=" + TransactionDate + "]";
 }

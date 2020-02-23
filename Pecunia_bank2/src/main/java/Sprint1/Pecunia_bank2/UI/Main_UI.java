@@ -4,15 +4,25 @@ package Sprint1.Pecunia_bank2.UI;
 
 import java.util.Scanner;
 
+import javax.security.auth.login.AccountException;
+
+import org.omg.IOP.TransactionService;
+
 import Sprint1.Pecunia_bank2.dao.TransactionDao;
 import Sprint1.Pecunia_bank2.dao.TransactionDaoImpl;
+import Sprint1.Pecunia_bank2.exception.AmountLessException;
+import Sprint1.Pecunia_bank2.exception.InvalidException;
+import Sprint1.Pecunia_bank2.service.TransactionServiceImpl;
+import Sprint1.Pecunia_bank2.transaction.model.TransactionUsingSlip;
 
 public class Main_UI {
 	
 	static TransactionDao transactionservice=new TransactionDaoImpl();
 	//static TransactionService transactionservice=new TransactionServiceImpl();
+	// static TransactionUsingSlip cd=new TransactionUsingSlip();
+		static TransactionService ts=new TransactionServiceImpl();
 	 static Scanner sc=new Scanner(System.in);
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidException  {
 		for(;;) {
 			
 			
@@ -21,12 +31,23 @@ public class Main_UI {
 			System.out.println("2.debit using slip");
 			System.out.println("3.Exit");
 			int choice=sc.nextInt();
+			String s=String.valueOf(choice);
+			
+			
+		
+				if(!s.matches("[1-4]{1}")) {
+						throw new InvalidException("Please enter digits only");
+			}
+			
 			switch(choice) {
 			case 1:
-				creditUsingSlipInfo();
+			
+					creditUsingSlipInfo();
 				break;
 			case 2:
-				debitUsingSlipInfo();
+				
+					debitUsingSlipInfo();
+					
 				break;
 			case 3:
 					System.exit(0);
@@ -44,11 +65,11 @@ public class Main_UI {
 		String accountNumber=sc.next();
 		System.out.println("enter amount to be credited");
 		double amount=sc.nextInt();
-		
+	
+		 
 		if(transactionservice.creditUsingSlip( userName, accountNumber,amount)) {
 			System.out.println("amount deposited successfully");
 		}
-		
 	}
 	private static void debitUsingSlipInfo() {
 		System.out.println("Enter user name");

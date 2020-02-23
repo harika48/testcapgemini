@@ -1,3 +1,4 @@
+
 package Sprint1.Pecunia_bank2.dao;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public   class TransactionDaoImpl implements TransactionDao{
 	public boolean creditUsingSlip(String userName, String accountNumber, double amount) {
 		
 		try {
+			
 			if(amount<=100||amount>=100000) {
 				throw new Exception("Insufficient");
 			}
@@ -69,6 +71,7 @@ public   class TransactionDaoImpl implements TransactionDao{
 		}
 		TransactionUsingSlip bal=transaction.get(accountNumber);
 			return  (int) bal.getBalance();
+		
 		}
 	public boolean updateAccountBalance(TransactionUsingSlip accountDetails, double amount) {
 		if(!transaction.containsKey(accountDetails.getAccountNumber())) {
@@ -100,14 +103,5 @@ public boolean addAmount(String accountNumber,double amount) {
 	acc.setBalance(acc.getBalance()+amount);
 	return true;
 }
-public boolean addAmount(String accountNumber, int amount) {
-	// TODO Auto-generated method stub
-	return false;
 }
-public boolean deductAmount(String accountNumber, int amount) {
-	// TODO Auto-generated method stub
-	return false;
-}
-}
-
 
